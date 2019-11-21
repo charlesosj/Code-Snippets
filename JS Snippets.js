@@ -1,6 +1,8 @@
 var executionContext = null;
 var formContext= executionContext.getFormContext();
 var recordId =  formContext.data.entity.getId().slice(1, -1);
+formContext.getAttribute(arg).setRequiredLevel(requirementLevel)
+
 
 
 
@@ -43,3 +45,16 @@ formContext.getAttribute(arg).setValue(value)
 //form notification
 formContext.ui.setFormNotification(message, level, uniqueId);
 
+
+//funtion for ribbon and normal check for context
+var formContext = executionContext.ui ? executionContext : executionContext.getFormContext();
+
+
+
+var globalContext = Xrm.Utility.getGlobalContext();
+        var currentUser = [];
+        currentUser[0] = {};
+        currentUser[0].entityType = "systemuser";
+        currentUser[0].id = globalContext.userSettings.userId;
+        currentUser[0].name = globalContext.userSettings.userName;
+        formContext.getAttribute("hisol_submittedby").setValue(currentUser);
