@@ -1,9 +1,9 @@
 var executionContext = null;
 var formContext= executionContext.getFormContext();
 var recordId =  formContext.data.entity.getId().slice(1, -1);
-formContext.getAttribute(arg).setRequiredLevel(requirementLevel)
+formContext.getAttribute(arg).setRequiredLevel(requirementLevel);
 
-
+formContext.ui.tabs.get("Defence").setVisible(true);
 
 
 Xrm.Utility.alertDialog("error.message");
